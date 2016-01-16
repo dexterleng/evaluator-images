@@ -5,6 +5,7 @@ sigterm_handler() {
 
 trap sigterm_handler SIGTERM
 
+mkdir /home/coursemology/package
 cd /home/coursemology/package
 chown -R coursemology:coursemology .
 
