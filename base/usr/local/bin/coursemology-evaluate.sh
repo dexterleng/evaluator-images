@@ -9,7 +9,11 @@ mkdir /home/coursemology/package
 cd /home/coursemology/package
 chown -R coursemology:coursemology .
 
-gosu coursemology make prepare compile &
+make prepare &
+child=$! 
+wait "$child"
+
+gosu coursemology make compile &
 child=$! 
 wait "$child"
 
