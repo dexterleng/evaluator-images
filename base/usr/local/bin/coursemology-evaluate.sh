@@ -12,12 +12,15 @@ chown -R coursemology:coursemology .
 make prepare &
 child=$! 
 wait "$child"
+return_code=$?; if [[ $return_code != 0 ]]; then exit $return_code; fi
 
 gosu coursemology make compile &
 child=$! 
 wait "$child"
+return_code=$?; if [[ $return_code != 0 ]]; then exit $return_code; fi
 
 # TODO: Process constraints
 gosu coursemology make test &
 child=$! 
 wait "$child"
+return_code=$?; if [[ $return_code != 0 ]]; then exit $return_code; fi
