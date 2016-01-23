@@ -19,4 +19,4 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364
 	&& apt-get purge -y --auto-remove ca-certificates wget
 
 COPY usr /usr
-CMD ["/usr/local/bin/coursemology-evaluate.sh"]
+ENTRYPOINT ["/usr/local/bin/coursemology-evaluate.sh"]
