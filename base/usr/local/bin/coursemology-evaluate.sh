@@ -36,7 +36,7 @@ while getopts "h?m:c:" opt; do
   esac
 done
 
-mkdir /home/coursemology/package
+mkdir -p /home/coursemology/package
 cd /home/coursemology/package
 chown -R coursemology:coursemology .
 
