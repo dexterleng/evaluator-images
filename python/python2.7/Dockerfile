@@ -7,3 +7,4 @@ RUN apt-get update && apt-get install -y --force-yes \
 	python-pip \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& pip install unittest-xml-reporting
+ENV PYTHON=/usr/bin/python2.7
