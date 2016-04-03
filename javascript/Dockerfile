@@ -9,3 +9,4 @@ RUN apt-get update && apt-get install -y --force-yes \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& npm install -g jasmine jasmine-reporters
 ENV NODEJS=/usr/bin/nodejs
+ENV NODE_PATH=/usr/local/lib/node_modules
