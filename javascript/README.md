@@ -2,6 +2,7 @@
 
 These images have a Node runtime built in. As part of the image, these are included:
 
+ - `nodejs-legacy`: for compatibility with npm packages.
  - `nodejs-dev`: this allows you to build C extensions.
  - `npm`: this allows you to include other JavaScript libraries.
 
