@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y --force-yes \
 	python3.4 \
 	python3.4-dev \
 	python3-pip \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& pip3 install unittest-xml-reporting
+  git \
+	&& pip3 install git+https://github.com/Coursemology/unittest-xml-reporting.git@extra-attributes \
+  && apt-get remove -y git \
+	&& rm -rf /var/lib/apt/lists/* 
 ENV PYTHON=/usr/bin/python3.4
