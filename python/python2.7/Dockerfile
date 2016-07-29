@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y --force-yes \
 	python2.7 \
 	python2.7-dev \
 	python-pip \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& pip install unittest-xml-reporting
+  git \
+	&& pip install git+https://github.com/Coursemology/unittest-xml-reporting.git@extra-attributes \
+  && apt-get remove -y git \
+	&& rm -rf /var/lib/apt/lists/*
 ENV PYTHON=/usr/bin/python2.7
