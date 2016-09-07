@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install --force-yes -y wget \
   && make \
   && make install \
   && pip3 install git+https://github.com/Coursemology/unittest-xml-reporting.git@extra-attributes \
+  && pip3 install timeout-decorator \
   && cd /root \
   && rm -r /root/Python-3.5.2 \
   && rm -r /root/Python-3.5.2.tgz \
