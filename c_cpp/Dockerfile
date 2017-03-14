@@ -3,7 +3,7 @@ MAINTAINER Coursemology <coursemology@googlegroups.com>
 
 RUN apt-get update && apt-get install -y --force-yes \
 	build-essential git \
-  && git clone https://github.com/google/googletest.git /lib/googletest \
+  && git clone https://github.com/google/googletest.git $HOME/googletest \
   && apt-get remove -y git \
 	&& rm -rf /var/lib/apt/lists/*
 
