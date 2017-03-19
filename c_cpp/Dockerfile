@@ -12,14 +12,14 @@ RUN apt-get update && apt-get install -y --force-yes \
   && apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Compile GTest libraries so they do not need to be compiled on each evaluation
-# After compilation, copy to GTEST_DIR
+# Compile GTest library so that it doesn't need to be compiled on each evaluation
+# The GTEST library would then be available as ${GTEST_DIR}/libgtest.a
 ENV GTEST_DIR $HOME/googletest/googletest
 
-RUN cd $GTEST_DIR/make \
-  && make gtest_main.a \
-  && make gtest.a \
-  && cp gtest_main.a gtest.a $GTEST_DIR
+RUN cd $GTEST_DIR/ \
+  && g++ -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
+     -pthread -c ${GTEST_DIR}/src/gtest-all.cc \
+  && ar -rv libgtest.a gtest-all.o
 
 # Set env var for GoogleTest to output an xml report file
 ENV GTEST_OUTPUT xml:./report.xml
