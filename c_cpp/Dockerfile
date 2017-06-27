@@ -10,7 +10,23 @@ RUN apt-get update && apt-get install -y --force-yes \
   && git clone https://github.com/google/googletest.git $HOME/googletest \
   && apt-get remove -y git \
   && apt-get autoremove -y \
-	&& rm -rf /var/lib/apt/lists/*
+  && apt-get install -y wget \ 
+  && cd $HOME/ \
+  && mkdir boost \
+  && cd boost \
+  && wget https://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download \
+  && tar xvfz download \
+  && rm download \
+  && cd boost_1_64_0/ \
+  && ./bootstrap.sh \
+  && ./b2 stage threading=multi link=static \
+  && ./b2 install threading=multi link=static \
+  && cd ../../ \
+  && rm -Rf boost/ \
+  && apt-get remove -y wget \
+  && rm -rf /var/lib/apt/lists/*
+
+ENV BOOST_DIR /usr/local/lib
 
 # Compile GTest library so that it doesn't need to be compiled on each evaluation
 # The GTEST library would then be available as ${GTEST_DIR}/libgtest.a
