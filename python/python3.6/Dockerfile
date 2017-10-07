@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install --force-yes -y wget \
   && pip3 install timeout-decorator \
   && pip3 install numpy \
   && pip3 install scipy \
+  && pip3 install matplotlib \
   && cd /root \
   && rm -r /root/Python-3.6.0 \
   && rm -r /root/Python-3.6.0.tgz \
