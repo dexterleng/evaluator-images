@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install --force-yes -y wget \
   && make install \
   && pip3 install git+https://github.com/Coursemology/unittest-xml-reporting.git@extra-attributes \
   && pip3 install timeout-decorator \
+  && pip3 install Pillow \
   && pip3 install numpy \
   && pip3 install scipy \
   && pip3 install matplotlib \
