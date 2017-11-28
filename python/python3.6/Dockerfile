@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install --force-yes -y wget \
   && pip3 install numpy \
   && pip3 install scipy \
   && pip3 install matplotlib \
+  && pip3 install pandas \
   && cd /root \
   && rm -r /root/Python-3.6.0 \
   && rm -r /root/Python-3.6.0.tgz \
