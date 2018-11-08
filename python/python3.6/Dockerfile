@@ -2,7 +2,7 @@ FROM coursemology/evaluator-image-base:latest
 MAINTAINER Coursemology <coursemology@googlegroups.com>
 
 RUN apt-get update && apt-get install --force-yes -y wget \
-  build-essential libssl-dev zlib1g-dev libbz2-dev git \
+  build-essential libssl-dev zlib1g-dev libbz2-dev git libsqlite3-dev \
   && cd /root \
   && wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz \
   && tar xzf Python-3.6.0.tgz \
